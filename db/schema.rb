@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181204162246) do
+ActiveRecord::Schema.define(version: 20181204204809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20181204162246) do
     t.uuid "ancestor_id", null: false
     t.uuid "descendant_id", null: false
     t.integer "generations", null: false
-    t.index ["ancestor_id", "descendant_id", "generations"], name: "answer_anc_desc_idx", unique: true
+    t.index ["ancestor_id", "descendant_id"], name: "index_answer_hierarchies_on_ancestor_id_and_descendant_id", unique: true
     t.index ["descendant_id"], name: "answer_desc_idx"
   end
 
